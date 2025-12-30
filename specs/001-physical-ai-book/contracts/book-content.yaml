@@ -1,0 +1,139 @@
+# Book Content Contract
+
+# This contract defines the required structure and validation rules
+# for the Physical AI & Humanoid Robotics book content.
+#
+# Version: 1.0.0
+# Branch: 001-physical-ai-book
+
+book:
+  title: "Physical AI & Humanoid Robotics"
+  description: "A comprehensive guide to embodied intelligence"
+  version: "1.0.0"
+  modules_required: 6  # SC-001
+
+modules:
+  - module_id: "00-introduction"
+    title: "Physical AI Fundamentals"
+    order: 0.0
+    priority: "P1"
+    prerequisites: []
+    chapters_required: 3  # intro, embodied-intelligence, simulation-first
+
+  - module_id: "01-ros2-fundamentals"
+    title: "ROS 2 Fundamentals"
+    order: 1.0
+    priority: "P1"
+    prerequisites: ["00-introduction"]
+    chapters_required: 5  # intro, nodes-topics, services-actions, urdf, rclpy-basics
+
+  - module_id: "02-digital-twin"
+    title: "Digital Twin Simulation"
+    order: 2.0
+    priority: "P2"
+    prerequisites: ["01-ros2-fundamentals"]
+    chapters_required: 3  # intro, gazebo-sim, unity-integration
+
+  - module_id: "03-nvidia-isaac"
+    title: "NVIDIA Isaac Platform"
+    order: 3.0
+    priority: "P2"
+    prerequisites: ["02-digital-twin"]
+    chapters_required: 4  # intro, isaac-sim, perception-vslam, nav2
+
+  - module_id: "04-vla-conversational"
+    title: "Vision-Language-Action & Conversational Robotics"
+    order: 4.0
+    priority: "P3"
+    prerequisites: ["03-nvidia-isaac"]
+    chapters_required: 4  # intro, vla-systems, llm-planning, speech-interaction
+
+  - module_id: "05-capstone"
+    title: "Capstone System Design"
+    order: 5.0
+    priority: "P3"
+    prerequisites: ["04-vla-conversational"]
+    chapters_required: 3  # intro, system-architecture, sim-to-real
+
+# Chapter template requirements (FR-002, Constitution)
+chapter_template:
+  required_sections:
+    - "introduction"
+    - "core_concepts"
+    - "examples"
+    - "summary"
+
+# Content validation rules
+validation_rules:
+  # Template compliance
+  template_compliance:
+    required: true
+    sections_required: 4  # SC-002
+
+  # Code examples
+  code_examples:
+    required: true  # FR-003
+    runnable: true
+    commented: true  # FR-013
+    language_valid: ["Python", "C++", "bash", "YAML", "text"]
+
+  # Citations
+  citations:
+    required: true  # FR-004, SC-004
+    format: "APA-style"  # FR-005
+    source_types: ["official_doc", "spec", "blog", "paper"]
+
+  # Links
+  internal_links:
+    required: true  # FR-014
+    must_resolve: true  # SC-012
+    no_cycles: true
+
+  external_links:
+    must_be_accessible: true  # FR-015, SC-013
+
+  # Content quality
+  originality:
+    required: true  # FR-009
+    plagiarism_tolerance: "zero"
+
+  # Difficulty progression
+  progressive_difficulty:
+    required: true  # SC-008
+    progression: "beginner to intermediate"
+
+  # Content focus
+  simulation_first:
+    required: true  # FR-008
+    no_hardware_required: true
+
+  humanoid_focus:
+    required: true  # FR-019
+    primary_case_studies: "humanoid robots"
+    transferability_notes: true
+
+# Content formats
+formats:
+  - "markdown"  # .md files (FR-001)
+  - "mdx"       # .mdx files for interactive content (FR-001)
+
+# Diagrams
+diagrams:
+  renderer: "mermaid"  # Mermaid.js for Markdown-compatible diagrams (FR-020)
+  supported_types:
+    - "flowchart"    # system architectures
+    - "sequence"     # ROS 2 node communication
+    - "state"        # robot behavior states
+
+# Deployment
+deployment:
+  platform: "GitHub Pages"  # FR-017
+  build_tool: "Docusaurus"
+  build_required: true  # FR-016, SC-005
+
+# Version control
+version_control:
+  system: "Git"
+  platform: "GitHub"
+  clean_commits_required: true  # FR-018, SC-007
+  descriptive_messages: true

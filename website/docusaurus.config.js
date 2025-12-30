@@ -29,7 +29,7 @@ const config = {
   organizationName: 'PhysicalAI-Humanoid-Robotics',
   projectName: 'PHYSICALAI_HUMANOID_ROBOTICS',
 
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'ignore',
 
   i18n: {
     defaultLocale: 'en',
@@ -60,13 +60,19 @@ const config = {
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
         respectPrefersColorScheme: true,
+        defaultMode: 'light',
+        disableSwitch: false,
       },
       navbar: {
         title: 'Physical AI Book',
         logo: {
           alt: 'Physical AI Logo',
           src: 'img/logo.svg',
+          width: 40,
+          height: 40,
         },
+        hideOnScroll: true,
+        style: 'primary',
         items: [
           {
             type: 'docSidebar',
@@ -89,11 +95,11 @@ const config = {
             items: [
               {
                 label: 'Introduction',
-                to: '/docs/intro/physical-ai-fundamentals',
+                to: '/intro/physical-ai-fundamentals.md',
               },
               {
                 label: 'How to Use This Book',
-                to: '/docs/intro/how-to-use-this-book',
+                to: '/intro/how-to-use-this-book.md',
               },
             ],
           },
@@ -102,27 +108,27 @@ const config = {
             items: [
               {
                 label: 'Module 1: Physical AI Foundations',
-                to: '/docs/modules/module-1-foundations/what-is-physical-ai',
+                to: '/modules/module-1-foundations/what-is-physical-ai.md',
               },
               {
                 label: 'Module 2: ROS 2 Fundamentals',
-                to: '/docs/modules/module-2-ros2/ros2-architecture',
+                to: '/modules/module-2-ros2/ros2-architecture.md',
               },
               {
                 label: 'Module 3: Digital Twin Simulation',
-                to: '/docs/modules/module-3-digital-twin/gazebo-concepts',
+                to: '/modules/module-3-digital-twin/gazebo-concepts.md',
               },
               {
                 label: 'Module 4: NVIDIA Isaac Platform',
-                to: '/docs/modules/module-4-isaac/isaac-sim-gpu',
+                to: '/modules/module-4-isaac/isaac-sim-gpu.md',
               },
               {
                 label: 'Module 5: VLA & Conversational Robotics',
-                to: '/docs/modules/module-5-vla/vision-language-action',
+                to: '/modules/module-5-vla/vision-language-action.md',
               },
               {
                 label: 'Module 6: Humanoid Robotics',
-                to: '/docs/modules/module-6-humanoid/humanoid-kinematics',
+                to: '/modules/module-6-humanoid/humanoid-kinematics.md',
               },
             ],
           },

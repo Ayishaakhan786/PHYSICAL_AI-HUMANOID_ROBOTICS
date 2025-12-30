@@ -17,7 +17,7 @@ This book provides:
 
 ## Start Learning
 
-Begin with [Physical AI Fundamentals](./intro/physical-ai-fundamentals) to understand what Physical AI is and why it matters.
+Begin with [Physical AI Fundamentals](./intro/physical-ai-fundamentals.md) to understand what Physical AI is and why it matters.
 
 ## Book Structure
 
@@ -37,13 +37,13 @@ graph LR
 
 ## Quick Links
 
-- [Physical AI Fundamentals](./intro/physical-ai-fundamentals)
-- [Why Humanoids Matter](./intro/why-humanoid-robotics-matters)
-- [How to Use This Book](./intro/how-to-use-this-book)
-- [ROS 2 Architecture](./modules/module-2-ros2/ros2-architecture)
-- [Gazebo Concepts](./modules/module-3-digital-twin/gazebo-concepts)
-- [Isaac Sim GPU](./modules/module-4-isaac/isaac-sim-gpu)
-- [VLA Systems](./modules/module-5-vla/vision-language-action)
-- [Humanoid Kinematics](./modules/module-6-humanoid/humanoid-kinematics)
-- [Hardware & Labs](./hardware/workstations-jetson)
-- [Capstone System](./capstone/autonomous-humanoid-system)
+- [Physical AI Fundamentals](./intro/physical-ai-fundamentals.md)
+- [Why Humanoids Matter](./intro/why-humanoid-robotics-matters.md)
+- [How to Use This Book](./intro/how-to-use-this-book.md)
+- [ROS 2 Architecture](./modules/module-2-ros2/ros2-architecture.md)
+- [Gazebo Concepts](./modules/module-3-digital-twin/gazebo-concepts.md)
+- [Isaac Sim GPU](./modules/module-4-isaac/isaac-sim-gpu.md)
+- [VLA Systems](./modules/module-5-vla/vision-language-action.md)
+- [Humanoid Kinematics](./modules/module-6-humanoid/humanoid-kinematics.md)
+- [Hardware & Labs](./hardware/workstations-jetson.md)
+- [Capstone System](./capstone/autonomous-humanoid-system.md)

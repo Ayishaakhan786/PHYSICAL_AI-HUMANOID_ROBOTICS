@@ -236,6 +236,8 @@ This introduction establishes the foundational concepts for the entire book:
 - **Module 3** covers digital twin simulation platforms (Gazebo, Unity) that enable simulation-first development
 - **Modules 4-6** build on these foundations to explore advanced topics: NVIDIA Isaac for GPU-accelerated robotics, VLA systems for conversational robots, and humanoid-specific challenges
 
+Continue to [Why Humanoid Robotics Matters](./why-humanoid-robotics-matters) to understand why humanoids represent the cutting edge of Physical AI research.
+
 ## Transferability Notes
 
 **Physical AI principles apply beyond humanoids**:
