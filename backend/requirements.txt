@@ -1,0 +1,34 @@
+# Core Web Framework
+fastapi==0.115.5
+uvicorn==0.34.0
+python-multipart==0.0.20
+
+# SSE Streaming Support
+sse-starlette==2.2.1
+
+# Pydantic (for data validation)
+pydantic==2.10.4
+
+# Vector Database
+qdrant-client==1.12.1
+
+# Embeddings and NLP
+cohere==5.13.4
+
+# LangChain (if used)
+langchain==0.3.13
+langchain-community==0.3.13
+langchain-google-genai==2.0.8
+
+# OpenAI SDK for OpenRouter
+openai==1.58.1
+
+# Agents Framework
+agents==0.1.5
+
+# Environment Configuration
+python-dotenv==1.0.1
+
+# Utilities
+requests==2.32.3
+beautifulsoup4==4.12.3
