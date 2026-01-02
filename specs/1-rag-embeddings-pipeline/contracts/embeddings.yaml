@@ -1,0 +1,88 @@
+# Cohere Embeddings API Contract
+# For future FastAPI integration
+
+openapi: 3.1.0
+info:
+  title: RAG Pipeline Embeddings API
+  version: 1.0.0
+  description: API for embedding generation (future FastAPI integration)
+
+paths:
+  /embed:
+    post:
+      summary: Generate embeddings for text chunks
+      description: Sends text chunks to Cohere API for embedding generation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - texts
+                - model
+              properties:
+                texts:
+                  type: array
+                  items:
+                    type: string
+                  description: List of texts to embed
+                model:
+                  type: string
+                  default: embed-english-v3.0
+                  description: Cohere model name
+                truncate:
+                  type: string
+                  enum: [NONE, END, START]
+                  default: END
+                  description: How to handle texts exceeding model limit
+      responses:
+        "200":
+          description: Successful embedding response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  embeddings:
+                    type: array
+                    items:
+                      type: array
+                      items:
+                        type: number
+                      description: List of embedding vectors
+                  meta:
+                    type: object
+                    properties:
+                      api_version:
+                        type: string
+                      billed_units:
+                        type: object
+                        properties:
+                          input_tokens:
+                            type: integer
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+components:
+  responses:
+    BadRequest:
+      description: Invalid request parameters
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+    Unauthorized:
+      description: Invalid or missing API key
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string

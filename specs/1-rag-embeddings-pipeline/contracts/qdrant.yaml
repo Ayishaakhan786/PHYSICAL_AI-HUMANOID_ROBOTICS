@@ -1,0 +1,195 @@
+# Qdrant Cloud API Contract
+# For future FastAPI integration
+
+openapi: 3.1.0
+info:
+  title: RAG Pipeline Qdrant API
+  version: 1.0.0
+  description: API for vector storage and retrieval (future FastAPI integration)
+
+paths:
+  /collections:
+    get:
+      summary: List collections
+      description: Returns all collections in the Qdrant instance
+      responses:
+        "200":
+          description: List of collections
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      collections:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            status:
+                              type: string
+                            vectors_count:
+                              type: integer
+
+  /collections/{name}:
+    get:
+      summary: Get collection info
+      description: Returns detailed information about a collection
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Collection information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      status:
+                        type: string
+                      vectors_count:
+                        type: integer
+                      points_count:
+                        type: integer
+
+  /collections/{name}/points:
+    post:
+      summary: Upsert vectors
+      description: Add or update vectors in the collection
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - points
+              properties:
+                points:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - id
+                      - vector
+                      - payload
+                    properties:
+                      id:
+                        type: string
+                      vector:
+                        type: array
+                        items:
+                          type: number
+                      payload:
+                        type: object
+                        properties:
+                          text:
+                            type: string
+                          source_url:
+                            type: string
+                          section_path:
+                            type: string
+                          heading:
+                            type: string
+                          chunk_index:
+                            type: integer
+      responses:
+        "200":
+          description: Points upserted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      operation_id:
+                        type: integer
+                      status:
+                        type: string
+
+  /collections/{name}/points/search:
+    post:
+      summary: Search vectors
+      description: Perform similarity search on the collection
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - query
+                - limit
+              properties:
+                query:
+                  type: array
+                  items:
+                    type: number
+                  description: Query vector
+                limit:
+                  type: integer
+                  default: 10
+                  description: Maximum results to return
+                filter:
+                  type: object
+                  description: Payload filter conditions
+                  properties:
+                    must:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          key:
+                            type: string
+                          match:
+                            type: object
+                            properties:
+                              value:
+                                type: string
+      responses:
+        "200":
+          description: Search results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      points:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            score:
+                              type: number
+                            payload:
+                              type: object
