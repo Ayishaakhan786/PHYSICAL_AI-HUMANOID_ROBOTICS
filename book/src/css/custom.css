@@ -805,3 +805,24 @@ div.mermaid svg {
     border: 1px solid #ccc;
   }
 }
+
+/* ============================================
+   Force Book Link Visibility on Mobile
+   ============================================ */
+
+/* Keep Book link visible on all screen sizes */
+.navbar__item.navbar__link[href*="docs"],
+.navbar__item[label*="Book"] {
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* Adjust mobile navbar to make room for the link */
+@media (max-width: 996px) {
+  .navbar__items--left {
+    display: flex !important;
+  }
+  .navbar__toggle {
+    margin-right: 0.5rem;
+  }
+}

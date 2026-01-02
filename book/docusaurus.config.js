@@ -75,8 +75,8 @@ const config = {
         style: 'primary',
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'physicalAiSidebar',
+            type: 'doc',
+            docId: 'intro/physical-ai-fundamentals',
             position: 'left',
             label: 'Book',
           },
